@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { getIPs } from './utils/network.js';
 
 const PORT = 9002;
 
@@ -10,4 +11,6 @@ app.get('/', (req, res) => {
     res.send('hello!');
 });
 
-app.listen(PORT, () => console.log(`🚀 Listening on port ${PORT} ⭐️`));
+const IPs = getIPs();
+const addressInfo = IPs.map(ip => `  http://${ip}:${PORT}`).join('\n');
+app.listen(PORT, () => console.log(`🚀 Server is Running at:\n${addressInfo}`));
