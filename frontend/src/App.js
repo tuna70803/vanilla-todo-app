@@ -1,15 +1,18 @@
-export default class App {
-    constructor({ $target }) {
-        this.$target = $target;
+import Floater from './views/Floater.js';
 
-        this.render();
-    }
+/**
+ * 메인 Todo App 컴포넌트  
+ * 배경과 메인 플로터를 표시한다.
+ * @return {HTMLElement} Todo App 컴포넌트
+ */
+const App = () => {
+    const el = document.createElement('div');
+    el.className = 'app';
 
-    template() {
-        return '<span>todo app</span>';
-    }
+    const floater = Floater();
+    el.appendChild(floater);
 
-    render() {
-        this.$target.innerHTML = this.template();
-    }
-}
+    return el;
+};
+
+export default App;

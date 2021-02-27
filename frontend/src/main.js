@@ -1,4 +1,5 @@
 import App from './App.js';
 
-const $target = document.querySelector('#app');
-new App({ $target });
+const body = document.querySelector('body');
+const app = App();
+body.appendChild(app);
