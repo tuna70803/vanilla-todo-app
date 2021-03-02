@@ -5,6 +5,7 @@
  *   - el : 슬라이더 컴포넌트의 엘리먼트
  *   - containerEl : 슬라이더 컨테이너 엘리먼트
  *   - open : 슬라이더를 화면에 표시한다.
+ *   - close : 슬라이더를 화면에서 숨긴다.
  */
 const Slider = () => {
     const el = document.createElement('div');
@@ -29,6 +30,11 @@ const Slider = () => {
     };
 
     /**
+     * 슬라이더를 숨긴다.
+     */
+    const close = () => el.classList.remove('slider--visible');
+
+    /**
      * 슬라이더의 컨테이너 엘리먼트
      */
     const containerEl = document.createElement('div');
@@ -41,6 +47,7 @@ const Slider = () => {
         el,
         containerEl,
         open,
+        close,
     };
 };
 

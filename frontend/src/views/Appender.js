@@ -8,11 +8,12 @@ import LabeledContainer from '../components/LabeledContainer.js';
 /**
  * Todo 아이템 추가 컴포넌트  
  * 슬라이더를 이용해 Todo 아이템을 만들 수 있다.
+ * @param {function} onAddItem - 아이템 추가 리스너 함수
  * @return {object} Todo 아이템 추가 컴포넌트 오브젝트
  *   - el : 아이템 추가 컴포넌트의 엘리먼트
  *   - open : 아이템 추가 컴포넌트를 화면에 표시한다
  */
-const Appender = () => {
+const Appender = ({ onAddItem } = {}) => {
     /**
      * 아이템 추가 메인 슬라이더
      */
@@ -48,6 +49,7 @@ const Appender = () => {
     /**
      * 입력폼 내용으로 Todo 아이템을 추가한다.  
      * 입력한 내용이 없다면 추가하지 않는다.
+     * 내용을 처리한 뒤, 입력폼을 초기화하고 슬라이더를 닫는다.
      */
     const onAdd = () => {
         const content = input.getValue();
@@ -55,7 +57,10 @@ const Appender = () => {
             return;
         }
 
-        alert(content);
+        onAddItem(content);
+
+        input.setValue('');
+        slider.close();
     };
 
     /**
