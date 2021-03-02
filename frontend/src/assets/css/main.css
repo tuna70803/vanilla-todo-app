@@ -3,10 +3,17 @@
     --sidebar-color: #50c1e9;
     --workspace-color: #f5f7fa;
     --border-radius: 5px;
+    --default-border-color: #dadada;
+    --text-color: #33363b;
 }
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .app {
@@ -18,31 +25,4 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(var(--main-bg-color), 0.1);
-}
-
-.floater {
-    width: 70%;
-    max-width: 1024px;
-    height: 70%;
-    display: flex;
-    border-radius: var(--border-radius);
-    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
-}
-
-.sidebar {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 auto;
-    border-radius: var(--border-radius) 0 0 var(--border-radius);
-    background-color: var(--sidebar-color);
-}
-
-.workspace {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    border: 1px solid #efefef;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    background-color: var(--workspace-color);
 }
