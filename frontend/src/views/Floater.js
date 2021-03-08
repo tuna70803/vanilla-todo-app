@@ -12,37 +12,13 @@ const Floater = () => {
     const el = document.createElement('main');
     el.className = 'floater';
 
-    /**
-     * Todo 아이템 목록
-     */
-    const todos = [];
-
-    /**
-     * Todo 목록에 아이템을 추가한다.
-     * @param {string} content - 추가할 내용
-     */
-    const onAddItem = (content) => {
-        if (!content) {
-            return;
-        }
-
-        if (todos.includes(content)) {
-            return;
-        }
-
-        todos.push(content);
-        workspace.setState(todos);
-    };
-    const appender = Appender({ onAddItem });
+    const appender = Appender();
     el.appendChild(appender.el);
 
     const sidebar = Sidebar();
     el.appendChild(sidebar.el);
 
-    const workspace = Workspace({
-        todos: todos,
-        openAppender: appender.open,
-    });
+    const workspace = Workspace({ openAppender: appender.open });
     el.appendChild(workspace.el);
 
     return {

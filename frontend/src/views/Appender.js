@@ -1,3 +1,4 @@
+import useTodos from '../stores/useTodos.js';
 import Slider from '../components/Slider.js';
 import Input from '../components/Input.js';
 import Spacing from '../components/Spacing.js';
@@ -8,17 +9,21 @@ import LabeledContainer from '../components/LabeledContainer.js';
 /**
  * Todo 아이템 추가 컴포넌트  
  * 슬라이더를 이용해 Todo 아이템을 만들 수 있다.
- * @param {function} onAddItem - 아이템 추가 리스너 함수
  * @return {object} Todo 아이템 추가 컴포넌트 오브젝트
  *   - el : 아이템 추가 컴포넌트의 엘리먼트
  *   - open : 아이템 추가 컴포넌트를 화면에 표시한다
  */
-const Appender = ({ onAddItem } = {}) => {
+const Appender = () => {
     /**
      * 아이템 추가 메인 슬라이더
      */
     const slider = Slider();
     slider.el.classList.add('appender');
+
+    /**
+     * Todo Store Data
+     */
+    const [_, dispatch] = useTodos();
 
     /**
      * 아이템 추가 에디터 컨테이너
@@ -69,7 +74,8 @@ const Appender = ({ onAddItem } = {}) => {
             return;
         }
 
-        onAddItem(content);
+        dispatch('add', content);
+
         onClose();
     };
 
