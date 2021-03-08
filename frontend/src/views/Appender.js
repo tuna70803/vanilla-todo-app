@@ -1,8 +1,8 @@
 import Slider from '../components/Slider.js';
-import Separator from '../components/Separator.js';
 import Input from '../components/Input.js';
 import Spacing from '../components/Spacing.js';
 import Button from '../components/Button.js';
+import Title from '../components/Title.js';
 import LabeledContainer from '../components/LabeledContainer.js';
 
 /**
@@ -26,20 +26,32 @@ const Appender = ({ onAddItem } = {}) => {
     const container = slider.containerEl;
     container.classList.add('appender__container');
 
-    const title = document.createElement('h2');
-    title.className = 'appender__title';
-    title.textContent = '할 일 추가';
-    container.appendChild(title);
+    /**
+     * 입력값을 초기화 하고 슬라이더를 닫는다.
+     */
+    const onClose = () => {
+        input.setValue('');
+        slider.close();
+    };
 
-    const separator = Separator();
-    container.appendChild(separator.el);
+    /**
+     * 타이틀 컴포넌트
+     */
+    const title = Title({
+        text: '할 일 추가',
+        buttonText: 'Cancel',
+        onButtonClick: onClose,
+    });
+    container.appendChild(title.el);
 
     /**
      * Todo 추가 입력폼
      */
-    const labeledInput = LabeledContainer({ text: '할 일' });
-    labeledInput.el.classList.add('appender__input');
-    const input = Input();
+    const labeledInput = LabeledContainer({
+        classname: 'appender__input',
+        text: '할 일',
+    });
+    const input = Input({ placeholder: '할 일을 입력하세요' });
     labeledInput.append(input.el);
     container.appendChild(labeledInput.el);
 
@@ -58,15 +70,17 @@ const Appender = ({ onAddItem } = {}) => {
         }
 
         onAddItem(content);
-
-        input.setValue('');
-        slider.close();
+        onClose();
     };
 
     /**
      * Todo 아이템 추가 버튼
      */
-    const addButton = Button({ text: '추가', round: true, onClick: onAdd });
+    const addButton = Button({
+        classname: 'appender__add',
+        text: '추가',
+        onClick: onAdd,
+    });
     container.appendChild(addButton.el);
 
     return {

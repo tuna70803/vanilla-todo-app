@@ -4,7 +4,35 @@
     --workspace-color: #f5f7fa;
     --border-radius: 5px;
     --default-border-color: #dadada;
-    --text-color: #33363b;
+    --system-bg: #ffffff;
+    --second-system-bg: #f2f2f7;
+    --toolbar-color: #fafafa;
+    --text-color: #1f1f21;
+    --sub-text-color: #999999;
+    --blue-color: #0076ff;
+    --blue-darken-color: #005de6;
+    --green-color: #34c759;
+    --green-darken-color: #1bae40;
+    --indigo-color: #5856d6;
+    --indigo-darken-color: #3f3dbd;
+    --orange-color: #ff9500;
+    --orange-darken-color: #e67c00;
+    --pink-color: #ff2d55;
+    --pink-darken-color: #e6143c;
+    --purple-color: #af52de;
+    --purple-darken-color: #9639c5;
+    --red-color: #ff3b30;
+    --red-darken-color: #e62217;
+    --teal-color: #5ac8fa;
+    --teal-darken-color: #41afe1;
+    --yellow-color: #ffcc00;
+    --yellow-darken-color: #e6b300;
+    --gray-color: #8e8e93;
+    --gray-darken-color: #75757a;
+    --gray2-color: #aeaeb2;
+    --gray2-darken-color: #959599;
+    --gray3-color: #c7c7cc;
+    --gray3-darken-color: #aeaeb3;
 }
 
 * {
