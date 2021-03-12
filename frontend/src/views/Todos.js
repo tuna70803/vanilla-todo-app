@@ -28,7 +28,7 @@ const Todos = () => {
     const addItems = () => {
         el.innerHTML = '';
         todos.map(item => {
-            const todo = TodoItem({ content: item });
+            const todo = TodoItem({ todo: item });
             el.appendChild(todo.el);
         });
     };

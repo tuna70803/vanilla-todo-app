@@ -19,8 +19,7 @@ export const createStore = (initState, reducer) => {
      * @param {string} action - 실행할 액션 이름
      */
     const dispatch = (action, ...args) => {
-        const newState = reducer(state, action, ...args);
-        state = newState;
+        reducer(state, action, ...args);
 
         publish();
     };

@@ -1,13 +1,25 @@
+import useTodos from '../stores/useTodos.js';
+
 /**
  * Todo 아이템 컴포넌트  
  * 개별 Todo 아이템을 표시하고 수정한다.
- * @param {string} content - Todo 내용
+ * @param {string} todo - Todo 내용
  * @return {object} Todo 아이템 컴포넌트 오브젝트
  *   - el : Todo 아이템 컴포넌트의 엘리먼트
  */
-const TodoItem = ({ content = '' } = {}) => {
+const TodoItem = ({ todo } = {}) => {
     const el = document.createElement('div');
     el.className = 'todo-item';
+
+    /**
+     * Todo Dispatcher
+     */
+    const [_, dispatch] = useTodos();
+
+    /**
+     * Todo completed state class
+     */
+    todo.completed && el.classList.add('todo-item--completed');
 
     /**
      * 완료 체크 박스
@@ -16,11 +28,8 @@ const TodoItem = ({ content = '' } = {}) => {
     check.className = 'todo-item__check';
     check.type = 'image';
     check.alt = '';
-    check.addEventListener('click', () => {
-        const needCheck = !Boolean(check.dataset.checked);
-        check.dataset.checked = needCheck ? 'true' : '';
-        check.src = needCheck ? 'src/assets/images/ic-check.svg' : '';
-    });
+    check.src = todo.completed ? 'src/assets/images/ic-check.svg' : '';
+    check.addEventListener('click', () => dispatch('toggleCompleted', todo.id));
     el.appendChild(check);
 
     /**
@@ -28,24 +37,20 @@ const TodoItem = ({ content = '' } = {}) => {
      */
     const label = document.createElement('span');
     label.className = 'todo-item__label';
-    label.textContent = content;
+    label.textContent = todo?.content || 'unknown';
     el.appendChild(label);
 
     /**
      * 관심 설정 체크 박스
      */
-    const favorite = document.createElement('input');
-    favorite.className = 'todo-item__favorite';
-    favorite.type = 'image';
-    favorite.src = 'src/assets/images/ic-favorite-border.svg';
-    favorite.addEventListener('click', () => {
-        const needCheck = !Boolean(favorite.dataset.checked);
-        favorite.dataset.checked = needCheck ? 'true' : '';
-        favorite.src = needCheck
-            ? 'src/assets/images/ic-favorite.svg'
-            : 'src/assets/images/ic-favorite-border.svg';
-    });
-    el.appendChild(favorite);
+    const important = document.createElement('input');
+    important.className = 'todo-item__important';
+    important.type = 'image';
+    important.src = todo.important
+        ? 'src/assets/images/ic-star.svg'
+        : 'src/assets/images/ic-star-border.svg';
+    important.addEventListener('click', () => dispatch('toggleImportant', todo.id));
+    el.appendChild(important);
 
     return {
         el,
