@@ -8,6 +8,9 @@
     position: relative;
 }
 
+/**
+ * Sidebar
+ */
 .sidebar {
     width: 30%;
     display: flex;
@@ -15,8 +18,12 @@
     flex: 0 0 auto;
     border-radius: var(--border-radius) 0 0 var(--border-radius);
     background-color: var(--sidebar-color);
+    padding: 20px;
 }
 
+/**
+ * Workspace
+ */
 .workspace {
     display: flex;
     flex-direction: column;
@@ -26,6 +33,9 @@
     background-color: var(--workspace-color);
 }
 
+/**
+ * Header
+ */
 .header {
     width: 100%;
     height: 60px;
@@ -36,6 +46,9 @@
     padding: 0 10px;
 }
 
+/**
+ * Appender
+ */
 .appender {
     margin: 1px;
 }
@@ -67,6 +80,9 @@
     margin-bottom: 20px;
 }
 
+/**
+ * Todos
+ */
 .todos {
     display: flex;
     flex-direction: column;
@@ -75,6 +91,9 @@
     overflow-y: auto;
 }
 
+/**
+ * Todo Item
+ */
 .todo-item {
     display: flex;
     flex-direction: row;
@@ -119,4 +138,68 @@
 
 .todo-item__important {
     outline: none;
+}
+
+/**
+ * Folders
+ */
+.folders {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+/**
+ * New Folder
+ */
+.new-folder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-folder__icon {
+    width: 32px;
+    height: 32px;
+    margin: 40px 0;
+    cursor: pointer;
+}
+
+.new-folder__input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-folder__input-form-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/**
+ * Folder Item
+ */
+.folder-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.folder-item__name {
+    flex: 1 1 auto;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 5px;
+}
+
+.folder-item__count {
+    font-size: 0.7rem;
+    color: var(--sub-text-color);
+    margin-left: 5px;
 }

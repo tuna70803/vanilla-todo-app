@@ -1,6 +1,7 @@
 import Sidebar from './Sidebar.js';
 import Workspace from './Workspace.js';
 import Appender from './Appender.js';
+import { registerModalContainer } from '../utils/useModal.js';
 
 /**
  * 메인 플로터 컴포넌트  
@@ -20,6 +21,8 @@ const Floater = () => {
 
     const workspace = Workspace({ openAppender: appender.open });
     el.appendChild(workspace.el);
+
+    registerModalContainer(el);
 
     return {
         el,

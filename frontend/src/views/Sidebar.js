@@ -1,3 +1,6 @@
+import NewFolder from './NewFolder.js';
+import Folders from './Folders.js';
+
 /**
  * 사이드바 컴포넌트  
  * Todo App의 메인 메뉴를 표시하고 관리한다.
@@ -7,6 +10,18 @@
 const Sidebar = () => {
     const el = document.createElement('aside');
     el.className = 'sidebar';
+
+    /**
+     * 새 폴더 만들기 컴포넌트
+     */
+    const newFolder = NewFolder();
+    el.appendChild(newFolder.el);
+
+    /**
+     * 폴더 목록 컴포넌트
+     */
+    const folders = Folders();
+    el.appendChild(folders.el);
 
     return {
         el,

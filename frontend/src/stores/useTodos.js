@@ -1,4 +1,5 @@
 import { createStore } from './useStore.js';
+import idGenerator from '../utils/idGenerator.js';
 
 /**
  * Todo 저장소 상태를 변경한다.
@@ -39,17 +40,6 @@ const add = (state, content) => {
  * @returns {number} 생성한 id
  */
 const generateId = idGenerator();
-
-/**
- * id 생성 제너레이터
- * @returns {number} 생성한 id
- */
-function* idGenerator() {
-    let id = 0;
-    while (true) {
-        yield id++;
-    }
-}
 
 /**
  * Todo 아이템 완료 상태를 토글한다.
