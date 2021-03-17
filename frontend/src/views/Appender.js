@@ -1,4 +1,4 @@
-import useTodos from '../stores/useTodos.js';
+import useTodo from '../stores/useTodo.js';
 import Slider from '../components/Slider.js';
 import Input from '../components/Input.js';
 import Spacing from '../components/Spacing.js';
@@ -23,7 +23,7 @@ const Appender = () => {
     /**
      * Todo Store Data
      */
-    const [_, dispatch] = useTodos();
+    const [, dispatch] = useTodo();
 
     /**
      * 아이템 추가 에디터 컨테이너

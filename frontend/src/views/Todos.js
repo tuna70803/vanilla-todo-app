@@ -1,4 +1,4 @@
-import useTodos from '../stores/useTodos.js';
+import useTodo from '../stores/useTodo.js';
 import TodoItem from './TodoItem.js';
 
 /**
@@ -14,7 +14,7 @@ const Todos = () => {
     /**
      * Todo Store Data
      */
-    const [todos, _, subscribe] = useTodos();
+    const [todoState, , subscribe] = useTodo();
 
     /**
      * Todo store에 구독을 추가한다.  
@@ -27,7 +27,7 @@ const Todos = () => {
      */
     const addItems = () => {
         el.innerHTML = '';
-        todos.map(item => {
+        todoState.todos.map(item => {
             const todo = TodoItem({ todo: item });
             el.appendChild(todo.el);
         });

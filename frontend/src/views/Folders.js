@@ -1,4 +1,4 @@
-import useFolders from '../stores/useFolders.js';
+import useFolder from '../stores/useFolder.js';
 import FolderItem from './FolderItem.js';
 
 /**
@@ -14,7 +14,7 @@ const Folders = () => {
     /**
      * Folder Store Data
      */
-    const [folders, _, subscribe] = useFolders();
+    const [folderState, dispatch, subscribe] = useFolder();
 
     /**
      * Folder store 구독을 추가한다.
@@ -27,7 +27,7 @@ const Folders = () => {
      * @param {number} id - 선택한 폴더 id
      */
     const onSelect = (id) => {
-        console.log('selected folder : ', id);
+        dispatch('select', id);
     };
 
     /**
@@ -36,7 +36,7 @@ const Folders = () => {
     const addItems = () => {
         el.innerHTML = '';
 
-        folders.map(item => {
+        folderState.folders.map(item => {
             const folder = FolderItem({
                 id: item.id,
                 name: item.name,
@@ -47,6 +47,8 @@ const Folders = () => {
             el.appendChild(folder.el);
         });
     };
+
+    dispatch('fetchAll');
 
     return {
         el,

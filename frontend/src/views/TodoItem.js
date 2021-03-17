@@ -1,4 +1,4 @@
-import useTodos from '../stores/useTodos.js';
+import useTodo from '../stores/useTodo.js';
 
 /**
  * Todo 아이템 컴포넌트  
@@ -14,7 +14,7 @@ const TodoItem = ({ todo } = {}) => {
     /**
      * Todo Dispatcher
      */
-    const [_, dispatch] = useTodos();
+    const [, dispatch] = useTodo();
 
     /**
      * Todo completed state class

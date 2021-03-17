@@ -11,15 +11,15 @@ export const createStore = (initState, reducer) => {
     /**
      * store state
      */
-    let state = initState;
+    let state = { ...initState };
 
     /**
      * 저장소 상태를 변경한다.  
      * 구독된 요소들에게 상태 변경 알림을 보낸다.
      * @param {string} action - 실행할 액션 이름
      */
-    const dispatch = (action, ...args) => {
-        reducer(state, action, ...args);
+    const dispatch = async (action, ...args) => {
+        await reducer(state, action, ...args);
 
         publish();
     };

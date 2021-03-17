@@ -1,4 +1,4 @@
-import useFolders from '../stores/useFolders.js';
+import useFolder from '../stores/useFolder.js';
 import { showModal } from '../utils/useModal.js';
 import Input from '../components/Input.js';
 
@@ -41,7 +41,7 @@ const NewFolder = ({} = {}) => {
     /**
      * Todo Store Dispatcher
      */
-    const [_, dispatch] = useFolders();
+    const [, dispatch] = useFolder();
 
     /**
      * 새 폴더를 만든다.  
