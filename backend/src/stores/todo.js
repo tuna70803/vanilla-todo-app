@@ -14,7 +14,7 @@ const TODOS_KEY = 'todos';
 export const getAllTodos = () => {
     const todos = store.get(TODOS_KEY) || [];
     return todos;
-}
+};
 
 /**
  * 지정한 폴더의 Todo 아이템을 읽어와 리턴한다.
@@ -58,4 +58,52 @@ export const addTodo = (folderId, content) => {
     store.set(TODOS_KEY, todos);
 
     return newTodo;
+};
+
+/**
+ * Todo 내용을 수정한다.
+ * @param {string} id - 변경할 Todo id
+ * @param {string} content - 변경할 Todo 내용
+ * @param {boolean} completed - 변경할 완료 상태
+ * @param {boolean} important - 변경할 중요함 상태
+ * @returns {object} 변경한 Todo 내용. 에러시 null.
+ */
+export const updateTodo = (id, { content, completed, important } = {}) => {
+    const todos = getAllTodos();
+    const todo = todos.find(item => item.id === id);
+    if (!todo) {
+        return null;
+    }
+
+    if (content) {
+        todo.content = content;
+    }
+
+    if (completed !== undefined) {
+        todo.completed = completed;
+    }
+
+    if (important !== undefined) {
+        todo.important = important;
+    }
+
+    patchTodo(todo);
+
+    return todo;
+};
+
+/**
+ * 저장소에 Todo 내용을 새로 저장한다.
+ * @param {object} todo - 새로 저장할 Todo 내용
+ */
+export const patchTodo = (todo) => {
+    const todos = getAllTodos();
+    const index = todos.findIndex(item => item.id === todo.id);
+    if (index === -1) {
+        return;
+    }
+
+    todos.splice(index, 1, todo);
+
+    store.set(TODOS_KEY, todos);
 };

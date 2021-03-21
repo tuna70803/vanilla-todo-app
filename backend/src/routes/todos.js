@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getTodos, addTodo } from '../stores/todo.js'
+import { getTodos, addTodo, updateTodo } from '../stores/todo.js'
 
 const router = Router();
 
@@ -41,6 +41,29 @@ router.post('/', (req, res, next) => {
         }
 
         res.json(newTodo);
+    } catch (error) {
+        console.error(error);
+        next();
+    }
+});
+
+/**
+ * PUT /todos/:todo_id
+ * body: { content, completed, important }
+ * Todo 내용을 수정한다.  
+ * PATCH Method가 더 알맞으나 클라이언트에서 보낼 수 없는 문제가 있으므로 PUT을 사용한다.
+ */
+router.put('/:todo_id', (req, res, next) => {
+    try {
+        const { todo_id } = req.params;
+        const { content, completed, important } = req.body;
+
+        const todo = updateTodo(todo_id, { content, completed, important });
+        if (!todo) {
+            return res.status(409).send('Todo를 수정할 수 없습니다');
+        }
+
+        res.json(todo);
     } catch (error) {
         console.error(error);
         next();
