@@ -50,3 +50,25 @@ export const addTodo = async (folderId, content) => {
         return Promise.reject(error);
     }
 };
+
+/**
+ * Todo 내용을 수정한다.
+ * @param {string} id - 수정할 Todo id
+ * @param {boolean} completed - 수정할 완료 상태
+ * @param {boolean} important - 수정할 중요함 상태
+ */
+export const updateTodo = async (id, { completed, important } = {}) => {
+    try {
+        await fetch(`${TODOS_URL}/${id}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                completed,
+                important,
+            }),
+        })
+    } catch (error) {
+        console.error(error);
+        return Promise.reject(error);
+    }
+};

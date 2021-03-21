@@ -1,4 +1,4 @@
-import { fetchTodos, addTodo } from '../apis/todo.js';
+import { fetchTodos, addTodo, updateTodo } from '../apis/todo.js';
 import { createStore } from './useStore.js';
 import useFolder from './useFolder.js';
 
@@ -16,10 +16,10 @@ const reducer = async (state, action, ...args) => {
             await add(state, ...args);
             break;
         case 'toggleCompleted':
-            toggleCompleted(state, ...args);
+            await toggleCompleted(state, ...args);
             break;
         case 'toggleImportant':
-            toggleImportant(state, ...args);
+            await toggleImportant(state, ...args);
             break;
     }
 };
@@ -55,13 +55,18 @@ const add = async (state, content) => {
  * @param {array<object>} state - Todo 저장소 상태
  * @param {number} id - Todo id
  */
-const toggleCompleted = (state, id) => {
+const toggleCompleted = async (state, id) => {
     const todo = state.todos.find(itme => itme.id === id);
     if (!todo) {
         return;
     }
 
-    todo.completed = !todo.completed;
+    const newCompleted = !todo.completed;
+    try {
+        const [folderState] = useFolder();
+        await updateTodo(id, { completed: newCompleted });
+        await fetchAll(state, folderState.current);
+    } catch {}
 };
 
 /**
@@ -69,13 +74,18 @@ const toggleCompleted = (state, id) => {
  * @param {array<object>} state - Todo 저장소 상태
  * @param {number} id - Todo id
  */
-const toggleImportant = (state, id) => {
+const toggleImportant = async (state, id) => {
     const todo = state.todos.find(item => item.id === id);
     if (!todo) {
         return;
     }
 
-    todo.important = !todo.important;
+    const newImportant = !todo.important;
+    try {
+        const [folderState] = useFolder();
+        await updateTodo(id, { important: newImportant });
+        await fetchAll(state, folderState.current);
+    } catch {}
 };
 
 /**
