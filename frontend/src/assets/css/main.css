@@ -36,7 +36,8 @@
 
     --temp-main-color: #eb5651;
     --temp-sidebar-color: #f4f5f9;
-    --temp-white-font : #ffffff;
+    --temp-white-font: #ffffff;
+    --temp-folder-hover: #ebecf1;
 }
 
 * {

@@ -1,4 +1,4 @@
-import { fetchTodos, addTodo, updateTodo } from '../apis/todo.js';
+import { fetchTodos, fetchImportantTodos, addTodo, updateTodo } from '../apis/todo.js';
 import { createStore } from './useStore.js';
 import useFolder from './useFolder.js';
 
@@ -11,6 +11,9 @@ const reducer = async (state, action, ...args) => {
     switch (action) {
         case 'fetchAll':
             await fetchAll(state, ...args);
+            break;
+        case 'fetchImportant':
+            await fetchImportant(state);
             break;
         case 'add':
             await add(state, ...args);
@@ -32,6 +35,17 @@ const reducer = async (state, action, ...args) => {
 const fetchAll = async (state, folderId) => {
     try {
         const list = await fetchTodos(folderId);
+        state.todos = list;
+    } catch {}
+};
+
+/**
+ * 중요함을 설정한 모든 Todo 아이템을 조회하고 저장한다.
+ * @param {object} state - 저장소
+ */
+const fetchImportant = async (state) => {
+    try {
+        const list = await fetchImportantTodos();
         state.todos = list;
     } catch {}
 };

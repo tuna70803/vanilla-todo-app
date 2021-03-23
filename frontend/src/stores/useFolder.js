@@ -15,6 +15,9 @@ const reducer = async (state, action, ...args) => {
         case 'select':
             select(state, ...args);
             break;
+        case 'selectImportant':
+            selectImportant(state);
+            break;
         case 'add':
             await add(state, ...args);
             break;
@@ -44,6 +47,18 @@ const select = (state, id) => {
     const [, dispatch] = useTodo();
     dispatch('fetchAll', id);
 };
+
+/**
+ * 중요함 폴더를 현재 폴더로 선택한다.  
+ * 중요함을 설정한 모든 Todo 목록을 조회하고 표시한다.
+ * @param {object} state - 저장소
+ */
+const selectImportant = (state) => {
+    state.current = 'important';
+
+    const [, dispatch] = useTodo();
+    dispatch('fetchImportant');
+}
 
 /**
  * Folder를 새로 만든다.  

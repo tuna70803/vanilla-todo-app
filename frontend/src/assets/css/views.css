@@ -228,3 +228,26 @@
     color: var(--sub-text-color);
     margin-left: 5px;
 }
+
+/**
+ * Important Folder
+ */
+.important-folder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--border-radius);
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.important-folder:hover {
+    background-color: var(--temp-folder-hover);
+}
+
+.important-folder__label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 8px;
+}

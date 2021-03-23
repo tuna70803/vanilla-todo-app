@@ -1,3 +1,4 @@
+import ImportantFolder from './ImportantFolder.js';
 import NewFolder from './NewFolder.js';
 import Folders from './Folders.js';
 
@@ -10,6 +11,12 @@ import Folders from './Folders.js';
 const Sidebar = () => {
     const el = document.createElement('aside');
     el.className = 'sidebar';
+
+    /**
+     * 중요함 폴더 컴포넌트
+     */
+    const importantFolder = ImportantFolder();
+    el.appendChild(importantFolder.el);
 
     /**
      * 새 폴더 만들기 컴포넌트
