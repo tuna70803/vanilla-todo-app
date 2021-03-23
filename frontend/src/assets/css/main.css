@@ -33,6 +33,10 @@
     --gray2-darken-color: #959599;
     --gray3-color: #c7c7cc;
     --gray3-darken-color: #aeaeb3;
+
+    --temp-main-color: #eb5651;
+    --temp-sidebar-color: #f4f5f9;
+    --temp-white-font : #ffffff;
 }
 
 * {
@@ -41,7 +45,9 @@
 
 html {
     font-size: 16px;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .app {
@@ -52,5 +58,18 @@ html {
     flex: 1 1 auto;
     justify-content: center;
     align-items: center;
-    background-color: rgba(var(--main-bg-color), 0.1);
+    position: relative;
+}
+
+.app::after {
+    content: "";
+    background: url("../images/background.jpg");
+    background-size: cover;
+    opacity: 0.1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
 }

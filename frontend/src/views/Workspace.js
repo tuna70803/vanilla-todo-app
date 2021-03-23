@@ -1,4 +1,3 @@
-import Header from './Header.js';
 import Todos from './Todos.js';
 
 /**
@@ -11,9 +10,6 @@ import Todos from './Todos.js';
 const Workspace = ({ openAppender } = {}) => {
     const el = document.createElement('section');
     el.className = 'workspace';
-
-    const header = Header({ openAppender });
-    el.appendChild(header.el);
 
     const todoList = Todos();
     el.appendChild(todoList.el);
