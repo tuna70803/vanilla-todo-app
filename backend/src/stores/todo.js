@@ -31,6 +31,15 @@ export const getTodos = (folderId) => {
 };
 
 /**
+ * important를 설정한 모든 Todo 목록을 반환한다.
+ * @returns {array<object>} important가 설정된 Todo 아이템 목록
+ */
+export const getImportantTodos = () => {
+    const todos = getAllTodos().filter(item => item.important);
+    return todos;
+};
+
+/**
  * 폴더에 Todo를 추가한다.
  * @param {string} folderId - 폴더 id
  * @param {string} content - 추가할 Todo 내용

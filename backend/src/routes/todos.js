@@ -1,7 +1,22 @@
 import { Router } from 'express';
-import { getTodos, addTodo, updateTodo } from '../stores/todo.js'
+import { getTodos, addTodo, updateTodo, getImportantTodos } from '../stores/todo.js';
 
 const router = Router();
+
+/**
+ * GET /todos/important
+ * important를 설정한 모든 Todo 목록을 반환한다.
+ */
+router.get('/important', (_, res, next) => {
+    try {
+        const todos = getImportantTodos();
+
+        res.json(todos);
+    } catch (error) {
+        console.error(error);
+        next();
+    }
+});
 
 /**
  * GET /todos/:folder_id
