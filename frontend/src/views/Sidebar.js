@@ -19,16 +19,16 @@ const Sidebar = () => {
     el.appendChild(importantFolder.el);
 
     /**
-     * 새 폴더 만들기 컴포넌트
-     */
-    const newFolder = NewFolder();
-    el.appendChild(newFolder.el);
-
-    /**
      * 폴더 목록 컴포넌트
      */
     const folders = Folders();
     el.appendChild(folders.el);
+
+    /**
+     * 새 폴더 만들기 컴포넌트
+     */
+    const newFolder = NewFolder();
+    el.appendChild(newFolder.el);
 
     return {
         el,

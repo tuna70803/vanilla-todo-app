@@ -7,7 +7,7 @@ import Input from '../components/Input.js';
  * @returns {object} 폴더 추가 컴포넌트 오브젝트
  *   - el : 폴더 추가 컴포넌트 엘리먼트
  */
-const NewFolder = ({} = {}) => {
+const NewFolder = () => {
     const el = document.createElement('div');
     el.className = 'new-folder';
 
@@ -16,11 +16,20 @@ const NewFolder = ({} = {}) => {
      */
     const iconEl = document.createElement('img');
     iconEl.className = 'new-folder__icon';
-    iconEl.src="src/assets/images/ic-new.svg";
+    iconEl.src="src/assets/images/ic-add-gray.svg";
     el.appendChild(iconEl);
 
     /**
-     * 폴더 이름 입력폼 엘리먼트
+     * 폴더 추가 라벨 엘리먼트
+     */
+    const labelEl = document.createElement('span');
+    labelEl.className = 'new-folder__label';
+    labelEl.textContent = 'Add Folder';
+    el.appendChild(labelEl);
+
+    /**
+     * 폴더 이름 입력폼 엘리먼트  
+     * 모달 컴포넌트에 설정한다.
      */
     const inputFormEl = document.createElement('section');
     inputFormEl.className = 'new-folder__input-form';
@@ -33,7 +42,7 @@ const NewFolder = ({} = {}) => {
      * 폴더 이름 입력 컴포넌트
      */
     const input = Input({
-        placeholder: '폴더 이름을 입력하세요',
+        placeholder: '폴더 이름을 입력해주세요',
         underline: true,
     });
     inputFormEl.appendChild(input.el);

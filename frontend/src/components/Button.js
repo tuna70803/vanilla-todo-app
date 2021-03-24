@@ -7,11 +7,12 @@
  *   text를 설정했다면 이미지를 무시된다.
  * @param {boolean} round - 양 끝을 라운드 처리
  * @param {boolean} circle - 원형 버튼
+ * @param {boolean} flat - 플랫 버튼
  * @param {function} onClick - click listener
  * @return {object} 버튼 컴포넌트 오브젝트
  *  - el : 버튼 컴포넌트의 엘리먼트
  */
-const Button = ({ classname, text, image, round, circle, onClick } = {}) => {
+const Button = ({ classname, text, image, round, circle, flat, onClick } = {}) => {
     const el = document.createElement('button');
     el.className = 'button';
 
@@ -22,6 +23,8 @@ const Button = ({ classname, text, image, round, circle, onClick } = {}) => {
     } else if (circle) {
         el.classList.add('button--circle');
     }
+
+    flat && el.classList.add('button--flat');
 
     if (text) {
         el.textContent = text;

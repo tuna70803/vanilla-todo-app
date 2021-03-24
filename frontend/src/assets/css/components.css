@@ -2,19 +2,20 @@
  * Button
  */
 .button {
-    border: 1px solid var(--default-border-color);
     border-radius: 5px;
-    background-color: var(--blue-color);
+    border: none;
+    background-color: var(--temp-main-color);
     outline: none;
-    padding: 10px 15px;
-    color: #ffffff;
+    padding: 8px 12px;
+    color: var(--temp-white-font);
     font-weight: bold;
+    line-height: 1.4;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .button:hover {
-    background-color: var(--blue-darken-color);
+    background-color: var(--temp-main-darken-color);
 }
 
 .button--round {
@@ -26,6 +27,16 @@
     height: 32px;
     padding: 0;
     border-radius: 50%;
+}
+
+.button--flat {
+    color: var(--temp-balck-font);
+    font-weight: normal;
+    background-color: transparent;
+}
+
+.button--flat:hover {
+    background-color: var(--temp-item-hover);
 }
 
 /**
@@ -80,23 +91,24 @@
  * Input
  */
 .input {
-    height: 35px;
     flex: 1 1 auto;
     border: none;
     background-color: transparent;
     outline: none;
-    color: var(--text-color);
-    font-size: 0.8rem;
-    padding: 0 10px;
+    color: var(--temp-balck-font);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    padding: 5px 10px;
 }
 
 .input::placeholder {
-    color: var(--sub-text-color);
+    color: var(--temp-gray-font);
     font-size: 0.75rem;
 }
 
 .input--underline {
-    border-bottom: 1px solid var(--gray3-color);
+    border-radius: 0;
+    border-bottom: 2px solid var(--temp-main-color);
 }
 
 /**
@@ -173,11 +185,10 @@
 .modal__container {
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
-    border: 1px solid var(--second-system-bg);
+    border-radius: var(--border-radius);
     background-color: var(--system-bg);
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-    padding: 30px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px 20px 20px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -186,14 +197,9 @@
 
 .modal__buttons {
     align-self: flex-end;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .modal__cancel {
-    background-color: var(--gray3-color);
-    margin-right: 5px;
-}
-
-.modal__cancel:hover {
-    background-color: var(--gray3-darken-color);
+    margin-right: 2px;
 }

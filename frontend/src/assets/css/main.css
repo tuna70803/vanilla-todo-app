@@ -35,9 +35,14 @@
     --gray3-darken-color: #aeaeb3;
 
     --temp-main-color: #eb5651;
+    --temp-main-darken-color: #e73a34;
     --temp-sidebar-color: #f4f5f9;
     --temp-white-font: #ffffff;
-    --temp-folder-hover: #ebecf1;
+    --temp-gray-font: #bac2c6;
+    --temp-black-font: #33363b;
+    --temp-item-hover: #ebecf1;
+    --temp-underline-color: #57be85;
+    --temp-padding: 8px;
 }
 
 * {

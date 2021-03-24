@@ -66,6 +66,7 @@ const Modal = ({ contentEl, cancel, done, onDismiss, options = {} } = {}) => {
     const cancelButton = Button({
         classname: 'modal__cancel',
         text: cancel ?? '취소',
+        flat: true,
         onClick: () => dismiss('cancel'),
     });
     buttonsEl.appendChild(cancelButton.el);
