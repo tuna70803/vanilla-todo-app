@@ -36,11 +36,12 @@ const Folders = () => {
     const addItems = () => {
         el.innerHTML = '';
 
-        folderState.folders.map(item => {
+        folderState.folders.map((item, index) => {
             const folder = FolderItem({
+                index: index,
                 id: item.id,
                 name: item.name,
-                count: item.count,
+                count: item.todos.length,
                 onSelect: onSelect,
             });
 

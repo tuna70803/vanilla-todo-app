@@ -43,6 +43,13 @@
     --temp-item-hover: #ebecf1;
     --temp-underline-color: #57be85;
     --temp-padding: 8px;
+    --temp-rainbow-red: #eb5651;
+    --temp-rainbow-orange: #ed8a3f;
+    --temp-rainbow-yellow: #f5d769;
+    --temp-rainbow-green: #8db87c;
+    --temp-rainbow-blue: #008bff;
+    --temp-rainbow-indigo: #20457c;
+    --temp-rainbow-purple: #6a60a9;
 }
 
 * {
