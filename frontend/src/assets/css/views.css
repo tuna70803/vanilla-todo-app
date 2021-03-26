@@ -118,6 +118,18 @@
     overflow-y: auto;
 }
 
+.todos__nothing {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--temp-gray-font);
+    padding: 20px 0;
+}
+
+.todos__nothing::before {
+    content: "👻";
+    font-style: normal;
+}
+
 /**
  * Todo Item
  */

@@ -27,6 +27,17 @@ const Todos = () => {
      */
     const addItems = () => {
         el.innerHTML = '';
+
+        if (todoState.todos.length === 0) {
+            el.innerHTML = `
+                <span class="todos__nothing">
+                    Nothing To do.
+                </span>
+            `;
+
+            return;
+        }
+
         todoState.todos.map(item => {
             const todo = TodoItem({ todo: item });
             el.appendChild(todo.el);
