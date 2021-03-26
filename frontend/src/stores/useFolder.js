@@ -21,6 +21,9 @@ const reducer = async (state, action, ...args) => {
         case 'add':
             await add(state, ...args);
             break;
+        case 'deselect':
+            deselect(state);
+            break;
     }
 };
 
@@ -72,6 +75,14 @@ const add = async (state, name) => {
         await fetchAll(state);
     } catch {}
 }
+
+/**
+ * 폴더 선택을 해제 한다.
+ * @param {object} state - 저장소
+ */
+const deselect = (state) => {
+    state.current = null;
+};
 
 /**
  * Folder 저장소 요소

@@ -41,6 +41,12 @@
     padding: 40px;
 }
 
+.workspace__home-image {
+    width: 25%;
+    opacity: 0.85;
+    margin: auto;
+}
+
 /**
  * Header
  */
@@ -59,6 +65,7 @@
 .header__logo {
     width: 32px;
     height: 32px;
+    cursor: pointer;
 }
 
 .header__title {
@@ -251,6 +258,7 @@
     flex: 1 1 auto;
     font-size: 0.75rem;
     color: var(--temp-black-font);
+    line-height: 1.2;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -259,6 +267,7 @@
 .folder-item__count {
     font-size: 0.7rem;
     color: var(--temp-gray-font);
+    line-height: 1.2;
     margin: 0 var(--temp-padding);
 }
 

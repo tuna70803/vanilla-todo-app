@@ -1,3 +1,4 @@
+import useFolder from '../stores/useFolder.js';
 import Spacing from '../components/Spacing.js';
 
 /**
@@ -17,6 +18,10 @@ const Header = () => {
     logoEl.className = 'header__logo';
     logoEl.src = 'src/assets/images/ic-logo.svg';
     el.appendChild(logoEl);
+
+    // 로고를 클릭하면 폴더 선택을 해제해 초기 상태로 표시한다.
+    const [, dispatch] = useFolder();
+    logoEl.addEventListener('click', () => dispatch('deselect'));
 
     /**
      * 앱 타이틀 엘리먼트
