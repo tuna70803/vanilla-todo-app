@@ -28,7 +28,7 @@ const TodoItem = ({ todo } = {}) => {
     check.className = 'todo-item__check';
     check.type = 'image';
     check.alt = '';
-    check.src = todo.completed ? 'src/assets/images/ic-check.svg' : '';
+    check.src = todo.completed ? 'src/assets/images/ic-done.svg' : '';
     check.addEventListener('click', () => dispatch('toggleCompleted', todo.id));
     el.appendChild(check);
 

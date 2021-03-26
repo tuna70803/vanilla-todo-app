@@ -1,4 +1,6 @@
+import TodoHeader from './TodoHeader.js';
 import Todos from './Todos.js';
+import NewTodo from './NewTodo.js';
 
 /**
  * 메인 워크스페이스 컴포넌트  
@@ -7,12 +9,27 @@ import Todos from './Todos.js';
  * @return {object} 메인 워크스페이스 컴포넌트 오브젝트
  *   - el : 워크스페이스 컴포넌트의 엘리먼트
  */
-const Workspace = ({ openAppender } = {}) => {
+const Workspace = () => {
     const el = document.createElement('section');
     el.className = 'workspace';
 
+    /**
+     * Todo 헤더 컴포넌트
+     */
+    const todoHeader = TodoHeader();
+    el.appendChild(todoHeader.el);
+
+    /**
+     * Todo 목록 컴포넌트
+     */
     const todoList = Todos();
     el.appendChild(todoList.el);
+
+    /**
+     * Todo 추가 컴포넌트
+     */
+    const newTodo = NewTodo();
+    el.appendChild(newTodo.el);
 
     return {
         el,
