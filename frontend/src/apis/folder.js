@@ -48,3 +48,33 @@ export const addFolder = async (name) => {
         return Promise.reject(error);
     }
 };
+
+/**
+ * 폴더 내용을 업데이트 한다.
+ * @param {string} id - 업데이트할 폴더 id
+ * @param {string} name - 새 이름
+ * @returns {object} 업데이트한 폴더 내용. 에러시 null.
+ */
+export const updateFolder = async ({ id, name } = {}) => {
+    try {
+        if (!id || !name) {
+            return null;
+        }
+
+        const res = await fetch(`${FOLDERS_URL}/${id}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name }),
+        });
+
+        if (!res.ok) {
+            throw Error(res);
+        }
+
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+        return Promise.reject(error);
+    }
+};

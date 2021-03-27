@@ -1,4 +1,4 @@
-import { fetchFolders, addFolder } from '../apis/folder.js';
+import { fetchFolders, addFolder, updateFolder } from '../apis/folder.js';
 import { createStore } from './useStore.js';
 import useTodo from './useTodo.js';
 
@@ -18,11 +18,14 @@ const reducer = async (state, action, ...args) => {
         case 'selectImportant':
             selectImportant(state);
             break;
+        case 'deselect':
+            deselect(state);
+            break;
         case 'add':
             await add(state, ...args);
             break;
-        case 'deselect':
-            deselect(state);
+        case 'update':
+            await update(state, ...args);
             break;
     }
 };
@@ -61,7 +64,15 @@ const selectImportant = (state) => {
 
     const [, dispatch] = useTodo();
     dispatch('fetchImportant');
-}
+};
+
+/**
+ * 폴더 선택을 해제 한다.
+ * @param {object} state - 저장소
+ */
+const deselect = (state) => {
+    state.current = null;
+};
 
 /**
  * Folder를 새로 만든다.  
@@ -74,14 +85,20 @@ const add = async (state, name) => {
         await addFolder(name);
         await fetchAll(state);
     } catch {}
-}
+};
 
 /**
- * 폴더 선택을 해제 한다.
+ * 폴더 정보를 업데이트 한다.
+ * 업데이트 뒤 폴더 목록을 갱신한다.
  * @param {object} state - 저장소
+ * @param {string} id - 폴더 id
+ * @param {string} name - 새 이름
  */
-const deselect = (state) => {
-    state.current = null;
+const update = async (state, id, name) => {
+    try {
+        await updateFolder({ id, name });
+        await fetchAll(state);
+    } catch {}
 };
 
 /**

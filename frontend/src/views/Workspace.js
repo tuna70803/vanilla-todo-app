@@ -6,7 +6,6 @@ import NewTodo from './NewTodo.js';
 /**
  * 메인 워크스페이스 컴포넌트  
  * Todo App의 세부 내용을 표시하고 관리한다.
- * @param {function} openAppender - Todo 아이템 추가폼 열기 함수
  * @return {object} 메인 워크스페이스 컴포넌트 오브젝트
  *   - el : 워크스페이스 컴포넌트의 엘리먼트
  */
@@ -15,27 +14,13 @@ const Workspace = () => {
     el.className = 'workspace';
 
     /**
-     * Todo 헤더 컴포넌트
-     */
-    const todoHeader = TodoHeader();
-
-    /**
-     * Todo 목록 컴포넌트
-     */
-    const todoList = Todos();
-
-    /**
-     * Todo 추가 컴포넌트
-     */
-    const newTodo = NewTodo();
-
-    /**
      * 워크스페이스 내용을 설정한다.  
      * 선택한 폴더가 없으면 홈 이미지를 표시하고,  
      * 폴더를 선택했다면 Todo 목록 및 기타 컨트롤을 표시한다.
      */
     const setContent = () => {
-        if (folderState.current === null) {
+        const folderId = folderState.current;
+        if (folderId === null) {
             el.innerHTML = `
                 <img
                     class="workspace__home-image"
@@ -47,10 +32,25 @@ const Workspace = () => {
         }
 
         el.innerHTML = '';
-        el.appendChild(todoHeader.el);
-        el.appendChild(todoList.el);
 
+        /**
+         * Todo 헤더 컴포넌트
+         */
+        const todoHeader = TodoHeader({ folderId });
+        el.appendChild(todoHeader.el);
+
+        /**
+         * Todo 목록 컴포넌트
+         */
+        const todos = Todos();
+        el.appendChild(todos.el);
+
+        /**
+         * Todo 추가 컴포넌트  
+         * 중요함 폴더라면 표시하지 않는다.
+         */
         if (folderState.current !== 'important') {
+            const newTodo = NewTodo();
             el.appendChild(newTodo.el);
         }
     };

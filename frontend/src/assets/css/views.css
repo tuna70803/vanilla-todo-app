@@ -349,7 +349,6 @@
     color: var(--temp-black-font);
 }
 
-.todo-header__folder-edit,
 .todo-header__sweep {
     width: 18px;
     height: 18px;
@@ -357,7 +356,6 @@
     transition: opacity 0.2s;
 }
 
-.todo-header__folder-edit:hover,
 .todo-header__sweep:hover {
     opacity: 1;
 }
@@ -411,4 +409,31 @@
     border-radius: 3px;
     border: 1px solid var(--temp-main-color);
     margin-top: 15px;
+}
+
+/**
+ * Folder Editor
+ */
+.folder-editor {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.folder-editor:hover {
+    opacity: 1;
+}
+
+.folder-editor__form {
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.folder-editor__title {
+    color: var(--temp-black-font);
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin: 0 0 20px 10px;
 }
