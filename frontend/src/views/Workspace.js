@@ -49,7 +49,10 @@ const Workspace = () => {
         el.innerHTML = '';
         el.appendChild(todoHeader.el);
         el.appendChild(todoList.el);
-        el.appendChild(newTodo.el);
+
+        if (folderState.current !== 'important') {
+            el.appendChild(newTodo.el);
+        }
     };
 
     /**
