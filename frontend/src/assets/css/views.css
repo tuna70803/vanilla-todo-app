@@ -349,19 +349,8 @@
     color: var(--temp-black-font);
 }
 
-.todo-header__sweep {
-    width: 18px;
-    height: 18px;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-}
-
-.todo-header__sweep:hover {
-    opacity: 1;
-}
-
-.todo-header__sweep {
-    margin-left: var(--temp-padding);
+.todo-header__sweeper {
+    margin-left: 10px;
 }
 
 /**
@@ -436,4 +425,24 @@
     font-size: 0.8rem;
     font-weight: 800;
     margin: 0 0 20px 10px;
+}
+
+/**
+ * Todo Sweeper
+ */
+.todo-sweeper {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.todo-sweeper:hover {
+    opacity: 1;
+}
+
+.todo-sweeper__message {
+    font-size: 0.9rem;
+    color: var(--temp-black-font);
+    padding: var(--temp-padding);
 }

@@ -91,3 +91,16 @@ export const updateTodo = async (id, { completed, important } = {}) => {
         return Promise.reject(error);
     }
 };
+
+/**
+ * 폴더의 완료한 Todd 아이템들을 제거한다.
+ * @param {string} folderId - 폴더 id
+ */
+export const sweepTodos = async (folderId) => {
+    try {
+        await fetch(`${TODOS_URL}/sweep/${folderId}`, { method: 'delete' });
+    } catch (error) {
+        console.error(error);
+        return Promise.reject(error);
+    }
+};

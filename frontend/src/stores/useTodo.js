@@ -1,4 +1,10 @@
-import { fetchTodos, fetchImportantTodos, addTodo, updateTodo } from '../apis/todo.js';
+import {
+    fetchTodos,
+    fetchImportantTodos,
+    addTodo,
+    updateTodo,
+    sweepTodos,
+} from '../apis/todo.js';
 import { createStore } from './useStore.js';
 import useFolder from './useFolder.js';
 
@@ -23,6 +29,9 @@ const reducer = async (state, action, ...args) => {
             break;
         case 'toggleImportant':
             await toggleImportant(state, ...args);
+            break;
+        case 'sweep':
+            await sweep(state, ...args);
             break;
     }
 };
@@ -99,6 +108,27 @@ const toggleImportant = async (state, id) => {
         const [folderState] = useFolder();
         await updateTodo(id, { important: newImportant });
         await fetchAll(state, folderState.current);
+    } catch {}
+};
+
+/**
+ * 폴더에서 완료한 Todo 아이템들을 제거한다.  
+ * 제거 후, 폴더와 Todo 목록을 새로 갱신한다.
+ * @param {object} state - 저장소 상태
+ * @param {string} folderId - 폴더 id
+ */
+const sweep = async (state, folderId) => {
+    try {
+        if (!folderId) {
+            return;
+        }
+
+        await sweepTodos(folderId);
+
+        const [, dispatch] = useFolder();
+        await dispatch('fetchAll');
+
+        await fetchAll(state, folderId);
     } catch {}
 };
 

@@ -1,5 +1,6 @@
 import useFolder from '../stores/useFolder.js';
 import FolderEditor from './FolderEditor.js';
+import TodoSweeper from './TodoSweeper.js';
 
 /**
  * Todo 헤더 컴포넌트  
@@ -44,17 +45,16 @@ const TodoHeader = ({ folderId } = {}) => {
          */
         const folderEditor = FolderEditor({ folderId, folderName });
         el.appendChild(folderEditor.el);
-    }
 
-    /**
-     * 완료한 Todo 지우기 아이콘 엘리먼트
-     */
-    const sweepEl = document.createElement('input');
-    sweepEl.className = 'todo-header__sweep';
-    sweepEl.type = 'image';
-    sweepEl.src = 'src/assets/images/ic-delete-sweep.svg';
-    sweepEl.title = '완료한 항목 지우기';
-    el.appendChild(sweepEl);
+        /**
+         * Todo 청소기 컴포넌트
+         */
+        const todoSweeper = TodoSweeper({
+            classname: 'todo-header__sweeper',
+            folderId: folderId,
+        });
+        el.appendChild(todoSweeper.el);
+    }
 
     return {
         el,
