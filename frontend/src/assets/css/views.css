@@ -343,9 +343,27 @@
 }
 
 .todo-header__folder-name {
+    flex: 1 1 auto;
     font-size: 1.2rem;
     font-weight: 800;
     color: var(--temp-black-font);
+}
+
+.todo-header__folder-edit,
+.todo-header__sweep {
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.todo-header__folder-edit:hover,
+.todo-header__sweep:hover {
+    opacity: 1;
+}
+
+.todo-header__sweep {
+    margin-left: var(--temp-padding);
 }
 
 /**
