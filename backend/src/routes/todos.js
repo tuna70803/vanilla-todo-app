@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { getTodos, addTodo, updateTodo, getImportantTodos } from '../stores/todo.js';
+import {
+    getTodos,
+    addTodo,
+    updateTodo,
+    getImportantTodos,
+    sweepTodos,
+} from '../stores/todo.js';
 
 const router = Router();
 
@@ -79,6 +85,29 @@ router.put('/:todo_id', (req, res, next) => {
         }
 
         res.json(todo);
+    } catch (error) {
+        console.error(error);
+        next();
+    }
+});
+
+/**
+ * DELETE /todos/:folder_id/completed
+ * 완료한 Todo 아이템들을 제거한다.
+ */
+router.delete('/sweep/:folder_id', (req, res, next) => {
+    try {
+        const folderId = req.params.folder_id;
+        if (!folderId) {
+            return res.status(400).send('잘못된 폴더 ID');
+        }
+
+        const result = sweepTodos(folderId);
+        if (result === false) {
+            return res.status(409).send('완료 아이템을 제거할 수 없습니다');
+        }
+
+        res.sendStatus(204)
     } catch (error) {
         console.error(error);
         next();

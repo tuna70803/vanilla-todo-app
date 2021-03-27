@@ -116,3 +116,36 @@ export const patchTodo = (todo) => {
 
     store.set(TODOS_KEY, todos);
 };
+
+/**
+ * 폴더의 완료한 Todo를 모두 제거한다.
+ * @param {string} folderId - 폴더 id
+ * @returns {boolean} 정상 실행시 true, 에러시 false.
+ */
+export const sweepTodos = (folderId) => {
+    const folder = getFolder(folderId);
+    if (!folder) {
+        return false;
+    }
+
+    const allTodos = getAllTodos();
+    const todoIds = folder.todos;
+    const remainIds = [];
+    for (let id of todoIds) {
+        const index = allTodos.findIndex(item => item.id === id);
+        const todo = allTodos[index];
+        if (todo.completed === false) {
+            remainIds.push(todo.id);
+            continue;
+        }
+
+        allTodos.splice(index, 1);
+    }
+
+    folder.todos = remainIds;
+    patchFolder(folder);
+
+    store.set(TODOS_KEY, allTodos);
+
+    return true;
+};
