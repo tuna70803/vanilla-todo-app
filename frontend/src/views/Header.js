@@ -1,4 +1,5 @@
 import useFolder from '../stores/useFolder.js';
+import { getImagePath } from '../utils/imageProvider.js';
 import Spacing from '../components/Spacing.js';
 
 /**
@@ -16,7 +17,7 @@ const Header = () => {
      */
     const logoEl = document.createElement('img');
     logoEl.className = 'header__logo';
-    logoEl.src = 'src/assets/images/ic-logo.svg';
+    logoEl.src = getImagePath('ic-logo.svg');
     el.appendChild(logoEl);
 
     // 로고를 클릭하면 폴더 선택을 해제해 초기 상태로 표시한다.
@@ -42,7 +43,7 @@ const Header = () => {
      */
     const settingsEl = document.createElement('img');
     settingsEl.className = 'header__settings';
-    settingsEl.src = 'src/assets/images/ic-settings.svg';
+    settingsEl.src = getImagePath('ic-settings.svg');
     el.appendChild(settingsEl);
 
     return {

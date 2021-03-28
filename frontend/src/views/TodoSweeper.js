@@ -1,5 +1,6 @@
 import useTodo from '../stores/useTodo.js';
 import { showModal } from '../utils/useModal.js';
+import { getImagePath } from '../utils/imageProvider.js';
 
 /**
  * Todo 청소기 컴포넌트  
@@ -14,7 +15,7 @@ const TodoSweeper = ({ classname, folderId } = {}) => {
     const el = document.createElement('input');
     el.className = 'todo-sweeper';
     el.type = 'image';
-    el.src = 'src/assets/images/ic-delete-sweep.svg';
+    el.src = getImagePath('ic-delete-sweep.svg');
     el.title = 'clear completed items';
 
     classname && el.classList.add(classname);

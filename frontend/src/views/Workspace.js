@@ -1,4 +1,5 @@
 import useFolder from '../stores/useFolder.js';
+import { getImagePath } from '../utils/imageProvider.js';
 import TodoHeader from './TodoHeader.js';
 import Todos from './Todos.js';
 import NewTodo from './NewTodo.js';
@@ -19,19 +20,20 @@ const Workspace = () => {
      * 폴더를 선택했다면 Todo 목록 및 기타 컨트롤을 표시한다.
      */
     const setContent = () => {
+        el.innerHTML = '';
+
         const folderId = folderState.current;
         if (folderId === null) {
-            el.innerHTML = `
-                <img
-                    class="workspace__home-image"
-                    src="src/assets/images/playful-cat.svg"
-                />
-            `;
+            /**
+             * 홈 이미지 엘리먼트
+             */
+            const homeImageEl = document.createElement('img');
+            homeImageEl.className = 'workspace__home-image';
+            homeImageEl.src = getImagePath('playful-cat.svg');
+            el.appendChild(homeImageEl);
 
             return;
         }
-
-        el.innerHTML = '';
 
         /**
          * Todo 헤더 컴포넌트

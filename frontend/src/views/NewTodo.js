@@ -1,4 +1,5 @@
 import { showModal } from '../utils/useModal.js';
+import { getImagePath } from '../utils/imageProvider.js';
 import Input from '../components/Input.js';
 import useTodo from '../stores/useTodo.js';
 
@@ -16,7 +17,7 @@ const NewTodo = () => {
      */
     const iconEl = document.createElement('img');
     iconEl.className = 'new-todo__icon';
-    iconEl.src="src/assets/images/ic-add.svg";
+    iconEl.src = getImagePath('ic-add.svg');
     el.appendChild(iconEl);
 
     /**

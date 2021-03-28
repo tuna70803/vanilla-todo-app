@@ -1,5 +1,6 @@
 import useFolder from '../stores/useFolder.js';
 import { showModal } from '../utils/useModal.js';
+import { getImagePath } from '../utils/imageProvider.js';
 import Input from '../components/Input.js';
 
 /**
@@ -16,7 +17,7 @@ const FolderEditor = ({ folderId, folderName } = {}) => {
     const el = document.createElement('input');
     el.className = 'folder-editor';
     el.type = 'image';
-    el.src = 'src/assets/images/ic-edit.svg';
+    el.src = getImagePath('ic-edit.svg');
     el.title = '폴더 편집';
 
     /**

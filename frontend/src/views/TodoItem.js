@@ -1,4 +1,5 @@
 import useTodo from '../stores/useTodo.js';
+import { getImagePath } from '../utils/imageProvider.js';
 
 /**
  * Todo 아이템 컴포넌트  
@@ -28,7 +29,7 @@ const TodoItem = ({ todo } = {}) => {
     check.className = 'todo-item__check';
     check.type = 'image';
     check.alt = '';
-    check.src = todo.completed ? 'src/assets/images/ic-done.svg' : '';
+    check.src = todo.completed ? getImagePath('ic-done.svg') : '';
     check.addEventListener('click', () => dispatch('toggleCompleted', todo.id));
     el.appendChild(check);
 
@@ -47,8 +48,8 @@ const TodoItem = ({ todo } = {}) => {
     important.className = 'todo-item__important';
     important.type = 'image';
     important.src = todo.important
-        ? 'src/assets/images/ic-star.svg'
-        : 'src/assets/images/ic-star-border.svg';
+        ? getImagePath('ic-star.svg')
+        : getImagePath('ic-star-border.svg');
     important.addEventListener('click', () => dispatch('toggleImportant', todo.id));
     el.appendChild(important);
 

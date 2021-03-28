@@ -43,6 +43,11 @@ const reducer = async (state, action, ...args) => {
  */
 const fetchAll = async (state, folderId) => {
     try {
+        if (folderId === 'important') {
+            await fetchImportant(state);
+            return;
+        }
+
         const list = await fetchTodos(folderId);
         state.todos = list;
     } catch {}

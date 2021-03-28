@@ -1,5 +1,6 @@
 import useFolder from '../stores/useFolder.js';
 import { showModal } from '../utils/useModal.js';
+import { getImagePath } from '../utils/imageProvider.js';
 import Input from '../components/Input.js';
 
 /**
@@ -16,7 +17,7 @@ const NewFolder = () => {
      */
     const iconEl = document.createElement('img');
     iconEl.className = 'new-folder__icon';
-    iconEl.src="src/assets/images/ic-add-gray.svg";
+    iconEl.src = getImagePath('ic-add-gray.svg');
     el.appendChild(iconEl);
 
     /**

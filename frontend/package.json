@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "npx http-server -p 9001",
+    "demo": "npx http-server ../ -p 9001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
