@@ -8,6 +8,8 @@
     outline: none;
     padding: 8px 12px;
     color: var(--temp-white-font);
+    font-family: 'Open Sans', 'Nanum Gothic', 'Noto Sans KR', sans-serif;
+    font-size: 0.85rem;
     font-weight: bold;
     line-height: 1.4;
     cursor: pointer;
@@ -96,6 +98,7 @@
     background-color: transparent;
     outline: none;
     color: var(--temp-balck-font);
+    font-family: 'Open Sans', 'Nanum Gothic', 'Noto Sans KR', sans-serif;
     font-size: 0.85rem;
     line-height: 1.6;
     padding: 5px 10px;

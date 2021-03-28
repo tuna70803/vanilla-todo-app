@@ -24,7 +24,7 @@ const TodoHeader = ({ folderId } = {}) => {
      */
     const folderName = (() => {
         if (folderId === 'important') {
-            return '⭐ 중요한 일';
+            return '⭐ IMPORTANT';
         }
 
         const folder = folderStore.folders.find(item => item.id === folderId);

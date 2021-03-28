@@ -15,7 +15,7 @@ const TodoSweeper = ({ classname, folderId } = {}) => {
     el.className = 'todo-sweeper';
     el.type = 'image';
     el.src = 'src/assets/images/ic-delete-sweep.svg';
-    el.title = '완료한 항목 지우기';
+    el.title = 'clear completed items';
 
     classname && el.classList.add(classname);
 
@@ -24,13 +24,13 @@ const TodoSweeper = ({ classname, folderId } = {}) => {
      */
     const messageEl = document.createElement('span');
     messageEl.className = 'todo-sweeper__message';
-    messageEl.textContent = '완료한 아이템을 모두 제거 하시겠습니까?';
+    messageEl.textContent = 'Are you sure you want to clear all completed items?';
 
     // 모달로 유저에게 확인한 뒤 제거를 실행한다.
     el.addEventListener('click', () => {
         showModal({
             contentEl: messageEl,
-            done: '모두 제거',
+            done: 'Clear All',
             onDismiss: (modalStatus) => {
                 if (modalStatus !== 'done') {
                     return;

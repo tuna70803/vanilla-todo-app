@@ -30,7 +30,7 @@ const FolderEditor = ({ folderId, folderName } = {}) => {
      */
     const titleEl = document.createElement('span');
     titleEl.className = 'folder-editor__title';
-    titleEl.textContent = '폴더 수정';
+    titleEl.textContent = 'Folder Edit';
     editFormEl.appendChild(titleEl);
 
     /**
@@ -73,7 +73,7 @@ const FolderEditor = ({ folderId, folderName } = {}) => {
 
         showModal({
             contentEl: editFormEl,
-            done: '수정',
+            done: 'Save Changes',
             onDismiss: onUpdate,
         });
     });

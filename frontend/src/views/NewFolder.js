@@ -24,7 +24,7 @@ const NewFolder = () => {
      */
     const labelEl = document.createElement('span');
     labelEl.className = 'new-folder__label';
-    labelEl.textContent = 'Add Folder';
+    labelEl.textContent = 'Create Folder';
     el.appendChild(labelEl);
 
     /**
@@ -35,14 +35,14 @@ const NewFolder = () => {
     inputFormEl.className = 'new-folder__input-form';
     const formTitleEl = document.createElement('span');
     formTitleEl.className = 'new-folder__input-form-title';
-    formTitleEl.textContent = '새 폴더 만들기';
+    formTitleEl.textContent = 'New Folder';
     inputFormEl.appendChild(formTitleEl);
 
     /**
      * 폴더 이름 입력 컴포넌트
      */
     const input = Input({
-        placeholder: '폴더 이름을 입력해주세요',
+        placeholder: 'enter a folder name',
         underline: true,
     });
     inputFormEl.appendChild(input.el);
@@ -75,7 +75,7 @@ const NewFolder = () => {
     el.addEventListener('click', () => {
         showModal({
             contentEl: inputFormEl,
-            done: '만들기',
+            done: 'Create',
             onDismiss: onNewFolder,
         });
     });

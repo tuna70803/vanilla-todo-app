@@ -38,7 +38,7 @@ const NewTodo = () => {
      */
     const formTitleEl = document.createElement('span');
     formTitleEl.className = 'new-todo__input-form-title';
-    formTitleEl.textContent = '새 할일 추가';
+    formTitleEl.textContent = 'Add Todo';
     inputFormEl.appendChild(formTitleEl);
 
     /**
@@ -75,7 +75,7 @@ const NewTodo = () => {
     el.addEventListener('click', () => {
         showModal({
             contentEl: inputFormEl,
-            done: '추가',
+            done: 'Add',
             onDismiss: onNewTodo,
         });
     });
