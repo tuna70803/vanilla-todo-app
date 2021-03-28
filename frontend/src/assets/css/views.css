@@ -1,3 +1,6 @@
+/**
+ * Floater
+ */
 .floater {
     width: 70%;
     max-width: 1024px;
@@ -95,7 +98,7 @@
     font-size: 1rem;
     font-style: italic;
     color: var(--temp-gray-font);
-    padding: 20px 0;
+    padding: 14px 0;
 }
 
 .todos__nothing::before {
@@ -310,7 +313,7 @@
 
 .todo-header__folder-name {
     flex: 1 1 auto;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     line-height: 1.2;
     color: var(--temp-black-font);
@@ -328,10 +331,14 @@
     flex-direction: row;
     flex: 0 0 auto;
     align-items: center;
-    border-radius: var(--border-radius);
     padding: var(--temp-padding) 0;
+    opacity: 0.6;
     cursor: pointer;
-    transition: font-weight 0.2s;
+    transition: opacity 0.2s;
+}
+
+.new-todo:hover {
+    opacity: 1;
 }
 
 .new-todo__icon {
@@ -342,11 +349,8 @@
 .new-todo__label {
     color: var(--temp-black-font);
     font-size: 0.7rem;
+    font-weight: 700;
     margin-left: var(--temp-padding);
-}
-
-.new-todo:hover .new-todo__label {
-    font-weight: 800;
 }
 
 .new-todo__input-form {
