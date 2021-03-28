@@ -1,7 +1,6 @@
 import Header from './Header.js';
 import Sidebar from './Sidebar.js';
 import Workspace from './Workspace.js';
-import Appender from './Appender.js';
 import { registerModalContainer } from '../utils/useModal.js';
 
 /**
@@ -13,9 +12,6 @@ import { registerModalContainer } from '../utils/useModal.js';
 const Floater = () => {
     const el = document.createElement('main');
     el.className = 'floater';
-
-    const appender = Appender();
-    el.appendChild(appender.el);
 
     /**
      * 메인 헤더 컴포넌트
@@ -39,7 +35,7 @@ const Floater = () => {
     /**
      * 작업 영역 컴포넌트
      */
-    const workspace = Workspace({ openAppender: appender.open });
+    const workspace = Workspace();
     contentEl.appendChild(workspace.el);
 
     registerModalContainer(el);

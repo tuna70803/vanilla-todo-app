@@ -81,40 +81,6 @@
 }
 
 /**
- * Appender
- */
-.appender {
-    margin: 1px;
-}
-
-.appender__container {
-    background-color: var(--second-system-bg);
-}
-
-.appender__title {
-    border-bottom: 1px solid var(--gray2-color);
-    background-color: var(--toolbar-color);
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    color: var(--text-color);
-    padding: 18px 0;
-}
-
-.appender__input {
-    padding: 8px;
-    margin: 30px 20px 0 20px;
-    border-top: 1px solid var(--gray3-color);
-    border-bottom: 1px solid var(--gray3-color);
-}
-
-.appender__add {
-    width: 120px;
-    align-self: center;
-    margin-bottom: 20px;
-}
-
-/**
  * Todos
  */
 .todos {
