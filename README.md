@@ -9,6 +9,10 @@ vanilla.js로 컴포넌트 기반 작성법을 연구해 볼 수 있습니다.
 작은 단위의 컴포넌트들을 만들고 조합하는게 목표입니다.  
 <br /><br />
 
+# Demo
+[Todo App Demo](https://tuna70803.github.io/vanilla-todo-app/)
+<br /><br />
+
 # 기능  
 - 폴더에서 여러 Todo 아이템을 관리 가능  
 - Todo 아이템에 완료 또는 중요함을 설정 가능  
