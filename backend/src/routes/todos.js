@@ -92,7 +92,7 @@ router.put('/:todo_id', (req, res, next) => {
 });
 
 /**
- * DELETE /todos/:folder_id/completed
+ * DELETE /todos/sweep/:folder_id
  * 완료한 Todo 아이템들을 제거한다.
  */
 router.delete('/sweep/:folder_id', (req, res, next) => {
