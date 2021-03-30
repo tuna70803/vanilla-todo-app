@@ -44,6 +44,7 @@ const NewFolder = () => {
      */
     const input = Input({
         placeholder: 'enter a folder name',
+        maxLength: 30,
         underline: true,
     });
     inputFormEl.appendChild(input.el);

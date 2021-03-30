@@ -13,6 +13,7 @@ import FolderIcon from './FolderIcon.js';
 const FolderItem = ({ index, id, name, count, onSelect } = {}) => {
     const el = document.createElement('div');
     el.className = 'folder-item';
+    el.title = name;
 
     /**
      * 폴더 아이콘 컴포넌트

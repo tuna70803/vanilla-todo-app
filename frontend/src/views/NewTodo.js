@@ -45,7 +45,7 @@ const NewTodo = () => {
     /**
      * 추가 입력폼의 입력 컴포넌트
      */
-    const input = Input({ classname: 'new-todo__input' });
+    const input = Input({ classname: 'new-todo__input', maxLength: 100 });
     inputFormEl.appendChild(input.el);
 
     /**

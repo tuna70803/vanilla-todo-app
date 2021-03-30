@@ -40,6 +40,7 @@ const FolderEditor = ({ folderId, folderName } = {}) => {
     const input = Input({
         classname: 'folder-editor__input',
         value: folderName,
+        maxLength: 30,
         underline: true,
     });
     editFormEl.appendChild(input.el);
