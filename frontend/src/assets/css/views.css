@@ -28,7 +28,7 @@
     flex-direction: column;
     flex: 0 0 auto;
     border-radius: var(--border-radius) 0 0 var(--border-radius);
-    background-color: var(--temp-sidebar-color);
+    background-color: var(--sidebar-color);
     padding: 20px;
 }
 
@@ -62,7 +62,7 @@
     flex: 0 0 auto;
     align-items: center;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
-    background-color: var(--temp-main-color);
+    background-color: var(--main-color);
     padding: 0 20px;
 }
 
@@ -75,7 +75,7 @@
 .header__title {
     font-size: 1rem;
     font-weight: 800;
-    color: var(--temp-white-font);
+    color: var(--white-font);
     line-height: 1.6;
     margin-left: 2px;
 }
@@ -98,7 +98,7 @@
 .todos__nothing {
     font-size: 1rem;
     font-style: italic;
-    color: var(--temp-gray-font);
+    color: var(--gray-font);
     padding: 14px 0;
 }
 
@@ -122,7 +122,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 2px solid var(--temp-main-color);
+    border: 2px solid var(--main-color);
     background-color: rgba(235, 86, 81, 0.05);
     outline: none;
     padding: 0;
@@ -130,7 +130,7 @@
 }
 
 .todo-item--completed .todo-item__check {
-    background-color: var(--temp-main-color);
+    background-color: var(--main-color);
 }
 
 .todo-item__label {
@@ -142,13 +142,13 @@
 }
 
 .todo-item--completed .todo-item__label {
-    color: var(--temp-gray-font);
+    color: var(--gray-font);
     text-decoration: line-through;
 }
 
 .todo-item__important {
     outline: none;
-    margin-left: var(--temp-padding);
+    margin-left: var(--padding);
 }
 
 /**
@@ -171,13 +171,13 @@
     flex-direction: row;
     align-items: center;
     border-radius: var(--border-radius);
-    padding: var(--temp-padding);
+    padding: var(--padding);
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .new-folder:hover {
-    background-color: var(--temp-item-hover);
+    background-color: var(--item-hover);
 }
 
 .new-folder__icon {
@@ -186,9 +186,9 @@
 }
 
 .new-folder__label {
-    color: var(--temp-gray-font);
+    color: var(--gray-font);
     font-size: 0.8rem;
-    margin-left: var(--temp-padding);
+    margin-left: var(--padding);
 }
 
 .new-folder__input-form {
@@ -198,7 +198,7 @@
 }
 
 .new-folder__input-form-title {
-    color: var(--temp-black-font);
+    color: var(--black-font);
     font-size: 0.8rem;
     font-weight: 800;
     margin: 0 0 20px 10px;
@@ -213,27 +213,27 @@
     flex-direction: row;
     align-items: center;
     border-radius: var(--border-radius);
-    padding: 0 var(--temp-padding) 0 calc(var(--temp-padding) * 1.5);
+    padding: 0 var(--padding) 0 calc(var(--padding) * 1.5);
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .folder-item:hover {
-    background-color: var(--temp-item-hover);
+    background-color: var(--item-hover);
 }
 
 .folder-item__content {
     display: flex;
     flex-direction: row;
     flex: 1 1 auto;
-    margin-left: var(--temp-padding);
+    margin-left: var(--padding);
     overflow: hidden;
 }
 
 .folder-item__name {
     flex: 1 1 auto;
     font-size: 0.75rem;
-    color: var(--temp-black-font);
+    color: var(--black-font);
     line-height: 1.2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -242,9 +242,9 @@
 
 .folder-item__count {
     font-size: 0.7rem;
-    color: var(--temp-gray-font);
+    color: var(--gray-font);
     line-height: 1.2;
-    margin: 0 var(--temp-padding);
+    margin: 0 var(--padding);
 }
 
 /**
@@ -255,13 +255,13 @@
     flex-direction: row;
     align-items: center;
     border-radius: var(--border-radius);
-    padding: var(--temp-padding);
+    padding: var(--padding);
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .important-folder:hover {
-    background-color: var(--temp-item-hover);
+    background-color: var(--item-hover);
 }
 
 .important-folder__label {
@@ -281,31 +281,31 @@
 }
 
 .folder-icon--0 {
-    background-color: var(--temp-rainbow-red);
+    background-color: var(--rainbow-red);
 }
 
 .folder-icon--1 {
-    background-color: var(--temp-rainbow-orange);
+    background-color: var(--rainbow-orange);
 }
 
 .folder-icon--2 {
-    background-color: var(--temp-rainbow-yellow);
+    background-color: var(--rainbow-yellow);
 }
 
 .folder-icon--3 {
-    background-color: var(--temp-rainbow-green);
+    background-color: var(--rainbow-green);
 }
 
 .folder-icon--4 {
-    background-color: var(--temp-rainbow-blue);
+    background-color: var(--rainbow-blue);
 }
 
 .folder-icon--5 {
-    background-color: var(--temp-rainbow-indigo);
+    background-color: var(--rainbow-indigo);
 }
 
 .folder-icon--6 {
-    background-color: var(--temp-rainbow-purple);
+    background-color: var(--rainbow-purple);
 }
 
 /**
@@ -323,7 +323,7 @@
     font-size: 1.5rem;
     font-weight: 800;
     line-height: 1.2;
-    color: var(--temp-black-font);
+    color: var(--black-font);
 }
 
 .todo-header__sweeper {
@@ -338,7 +338,7 @@
     flex-direction: row;
     flex: 0 0 auto;
     align-items: center;
-    padding: var(--temp-padding) 0;
+    padding: var(--padding) 0;
     opacity: 0.6;
     cursor: pointer;
     transition: opacity 0.2s;
@@ -354,10 +354,10 @@
 }
 
 .new-todo__label {
-    color: var(--temp-black-font);
+    color: var(--black-font);
     font-size: 0.7rem;
     font-weight: 700;
-    margin-left: var(--temp-padding);
+    margin-left: var(--padding);
 }
 
 .new-todo__input-form {
@@ -374,7 +374,7 @@
 
 .new-todo__input {
     border-radius: 3px;
-    border: 1px solid var(--temp-main-color);
+    border: 1px solid var(--main-color);
     margin-top: 15px;
 }
 
@@ -399,7 +399,7 @@
 }
 
 .folder-editor__title {
-    color: var(--temp-black-font);
+    color: var(--black-font);
     font-size: 0.8rem;
     font-weight: 800;
     margin: 0 0 20px 10px;
@@ -421,6 +421,6 @@
 
 .todo-sweeper__message {
     font-size: 0.9rem;
-    color: var(--temp-black-font);
-    padding: var(--temp-padding);
+    color: var(--black-font);
+    padding: var(--padding);
 }
